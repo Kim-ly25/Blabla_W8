@@ -1,3 +1,4 @@
+import 'package:blabla/ui/states/ride_preference_state.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
 
@@ -20,6 +21,13 @@ List<SingleChildWidget> get devProviders {
     // Ride preferences repository
     Provider<RidePreferencesRepository>(
       create: (_) => RidePreferenceRepositoryMock(),
+    ),
+
+    // Ride preference global state
+    ChangeNotifierProvider<RidePreferenceState>(
+      create: (context) => RidePreferenceState(
+        repository: context.read<RidePreferencesRepository>(),
+      ),
     ),
   ];
 }
