@@ -1,3 +1,4 @@
+import 'package:blabla/ui/screens/home/view_model/home_view_model.dart';
 import 'package:blabla/ui/states/ride_preference_state.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
@@ -29,6 +30,7 @@ List<SingleChildWidget> get devProviders {
         repository: context.read<RidePreferencesRepository>(),
       ),
     ),
+    ChangeNotifierProvider<HomeViewModel>(create: (_) => HomeViewModel()),
   ];
 }
 
