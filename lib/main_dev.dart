@@ -30,7 +30,11 @@ List<SingleChildWidget> get devProviders {
         repository: context.read<RidePreferencesRepository>(),
       ),
     ),
-    ChangeNotifierProvider<HomeViewModel>(create: (_) => HomeViewModel()),
+    ChangeNotifierProvider<HomeViewModel>(
+      create: (context) => HomeViewModel(
+        ridePreferenceState: context.read<RidePreferenceState>(),
+      ),
+    ),
   ];
 }
 
